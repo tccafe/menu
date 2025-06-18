@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T'Castle Cafe - Premium Coffee & Dining Experience</title>
+    <meta name="description" content="T'Castle Cafe offers premium coffee, fresh juices, delicious shakes, and gourmet food in a cozy atmosphere. Visit us for an unforgettable dining experience.">
+    <meta name="keywords" content="cafe, coffee, tea, shakes, burgers, food, T'Castle Cafe">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="T'Castle Cafe - Premium Coffee & Dining Experience">
+    <meta property="og:description" content="Where every cup tells a story and every bite creates memories. Experience the perfect blend of premium coffee and exceptional cuisine.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <div class="nav-logo">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <span class="nav-title">T'Castle Cafe</span>
+                </div>
+                
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#menu" class="nav-link">Menu</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="floating-element floating-1"></div>
+            <div class="floating-element floating-2"></div>
+            <div class="floating-element floating-3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <div class="logo-container">
+                        <div class="coffee-icon">
+                            <i class="fas fa-coffee"></i>
+                            <div class="steam">
+                                <div class="steam-line"></div>
+                                <div class="steam-line"></div>
+                                <div class="steam-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-title">
+                        <h1>T'CASTLE</h1>
+                        <p>CAFE</p>
+                    </div>
+                </div>
+                
+                <p class="hero-description">
+                    Where every cup tells a story and every bite creates memories. Experience the perfect blend of premium coffee and exceptional cuisine.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('menu')">
+                        <i class="fas fa-utensils"></i>
+                        Explore Our Menu
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Visit Us Today
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="section-bg">
+            <div class="bg-decoration bg-decoration-1"></div>
+            <div class="bg-decoration bg-decoration-2"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Menu</h2>
+                <p class="section-description">
+                    Discover our carefully crafted selection of premium beverages and delicious food items, prepared with love and the finest ingredients
+                </p>
+            </div>
+            
+            <div class="menu-grid" id="menu-grid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-bg">
+            <div class="bg-decoration bg-decoration-3"></div>
+            <div class="bg-decoration bg-decoration-4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="T'Castle Cafe interior">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">About T'Castle Cafe</h2>
+                    
+                    <p>Welcome to T'Castle Cafe, where passion meets perfection in every cup and every bite. Founded with a vision to create more than just a dining experience, we've crafted a sanctuary where coffee lovers and food enthusiasts come together.</p>
+                    
+                    <p>Our menu features carefully selected premium coffee beans, fresh ingredients, and innovative recipes that celebrate both traditional flavors and modern culinary artistry. From our signature T'Castle Shake to our aromatic Saffron Tea, every item is prepared with love and attention to detail.</p>
+                    
+                    <p>Step into our warm, welcoming atmosphere and discover why T'Castle Cafe has become a beloved gathering place for friends, families, and coffee connoisseurs alike.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon feature-icon-1">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4>Premium Quality</h4>
+                            <p>Only the finest ingredients sourced with care</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon feature-icon-2">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4>Made with Love</h4>
+                            <p>Crafted with care and passion in every dish</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-bg">
+            <div class="bg-decoration bg-decoration-5"></div>
+            <div class="bg-decoration bg-decoration-6"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Visit Us</h2>
+                <p class="section-description">
+                    Come experience T'Castle Cafe in person. We're here to serve you the perfect cup and create memorable moments that last a lifetime.
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>123 Castle Street, Downtown District<br>Your City, State 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>hello@tcastlecafe.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 7:00 AM - 10:00 PM<br>Saturday - Sunday: 8:00 AM - 11:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h3>Send us a Message</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="reservation">Reservation</option>
+                                <option value="catering">Catering</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <span class="footer-title">T'Castle Cafe</span>
+                </div>
+                
+                <p class="footer-description">
+                    Where every cup tells a story and every visit creates lasting memories. Thank you for being part of our T'Castle family.
+                </p>
+                
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2024 T'Castle Cafe. All rights reserved. | Designed with ❤️ for coffee lovers</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
