@@ -1,93 +1,60 @@
 // Menu Data
 const menuData = [
   {
-    title: "Hot Beverages",
-    icon: "fas fa-mug-hot",
+    title: "Sandwiches",
+    icon: "fas fa-sandwich",
     items: [
-      { name: "Cappuccino", price: "₹13", description: "Rich espresso with steamed milk foam" },
-      { name: "Americano", price: "₹12", description: "Bold espresso with hot water" },
-      { name: "Espresso", price: "₹10", description: "Pure, concentrated coffee shot" },
-      { name: "Latte", price: "₹10", description: "Smooth espresso with steamed milk" },
-      { name: "Cold Coffee", price: "₹10", description: "Refreshing iced coffee blend" },
-      { name: "Caffe Mocha", price: "₹10", description: "Coffee with chocolate and steamed milk" },
-      { name: "Frappe Coffee", price: "₹10", description: "Blended iced coffee drink" }
+      { name: "Veg Sandwich", price: "₹70", description: "Fresh vegetables with flavorful spices" },
+      { name: "Egg Sandwich", price: "₹50", description: "Perfectly cooked eggs with fresh bread" },
+      { name: "Chicken Sandwich", price: "₹99", description: "Tender chicken with fresh ingredients" },
+      { name: "Chicken Club", price: "₹120", description: "Layered chicken club sandwich" }
     ]
   },
   {
-    title: "Premium Teas",
-    icon: "fas fa-leaf",
-    items: [
-      { name: "Saffron Tea", price: "₹79", description: "Luxurious tea with golden saffron" },
-      { name: "Green Tea", price: "₹30", description: "Antioxidant-rich healthy blend" },
-      { name: "Ginger Honey Tea", price: "₹25", description: "Warming ginger with natural honey" },
-      { name: "Lemon Tea", price: "₹20", description: "Refreshing citrus blend" },
-      { name: "Mint Tea", price: "₹20", description: "Fresh and invigorating" },
-      { name: "Ginger Tea", price: "₹20", description: "Traditional spiced tea" },
-      { name: "Cinnamon Tea", price: "₹20", description: "Warm spice blend" },
-      { name: "Cardamom Tea", price: "₹20", description: "Aromatic Indian spice tea" }
-    ]
-  },
-  {
-    title: "Fresh Juices",
+    title: "Fresh Juice",
     icon: "fas fa-glass-whiskey",
     items: [
-      { name: "Mango", price: "₹99", description: "Fresh tropical mango juice" },
-      { name: "Pineapple", price: "₹99", description: "Sweet and tangy pineapple" },
-      { name: "Chikku", price: "₹99", description: "Sweet sapodilla fruit juice" },
-      { name: "Avocado", price: "₹99", description: "Creamy and nutritious" },
-      { name: "Apple", price: "₹99", description: "Fresh crisp apple juice" },
-      { name: "Pomegranate", price: "₹99", description: "Antioxidant-rich superfruit" },
-      { name: "Watermelon", price: "₹99", description: "Refreshing summer favorite" },
-      { name: "Papaya Honey", price: "₹99", description: "Sweet papaya with natural honey" },
-      { name: "Orange, Carrot & Mango", price: "₹99", description: "Vitamin-rich blend" },
-      { name: "Pistachio", price: "₹99", description: "Rich nutty delight" },
-      { name: "Strawberry", price: "₹99", description: "Fresh berry goodness" }
+      { name: "Apple", price: "₹90", description: "Fresh crisp apple juice" },
+      { name: "Anar (Pomegranate)", price: "₹90", description: "Antioxidant-rich pomegranate juice" },
+      { name: "Watermelon", price: "₹30", description: "Refreshing summer favorite" },
+      { name: "Grape", price: "₹40", description: "Sweet and tangy grape juice" }
     ]
   },
   {
-    title: "Signature Shakes",
+    title: "Shakes",
     icon: "fas fa-blender",
     items: [
-      { name: "T'Castle Shake", price: "₹79", description: "Our signature house special" },
-      { name: "Spanish Delight", price: "₹99", description: "Rich and indulgent flavor" },
-      { name: "Lotus Biscoff", price: "₹99", description: "Caramelized biscuit delight" },
-      { name: "All Berry Shake", price: "₹99", description: "Mixed berry goodness" },
-      { name: "Strawberry Shake", price: "₹99", description: "Fresh strawberry cream" },
-      { name: "Avocado Shake", price: "₹99", description: "Creamy green smoothness" },
-      { name: "Mango Shake", price: "₹99", description: "Tropical mango cream" },
-      { name: "Mixed Dry Fruits", price: "₹89", description: "Nutritious nuts and dates blend" },
-      { name: "Dates Shake", price: "₹79", description: "Natural sweetness of dates" },
-      { name: "Oreo", price: "₹79", description: "Cookies and cream classic" }
+      { name: "Chikoo", price: "₹64", description: "Sweet sapodilla fruit shake" },
+      { name: "Sharja", price: "₹59", description: "Special regional blend" },
+      { name: "Mango", price: "₹79", description: "Tropical mango cream shake" },
+      { name: "Avocado", price: "₹89", description: "Creamy green smoothness" },
+      { name: "Anar (Pomegranate)", price: "₹79", description: "Rich pomegranate shake" },
+      { name: "Seethi", price: "₹89", description: "Traditional sweet flavor" },
+      { name: "Kashmiri", price: "₹79", description: "Exotic Kashmiri blend" },
+      { name: "Tender Coconut", price: "₹79", description: "Fresh coconut delight" },
+      { name: "Mango (Premium)", price: "₹99", description: "Premium mango shake" },
+      { name: "Tender Strawberry", price: "₹99", description: "Fresh strawberry cream" },
+      { name: "Tender Cocoa", price: "₹99", description: "Rich chocolate cocoa shake" },
+      { name: "Avocado (Premium)", price: "₹99", description: "Premium creamy avocado" },
+      { name: "Dry Fruits", price: "₹120", description: "Nutritious mixed dry fruits" },
+      { name: "Fruit Mix", price: "₹120", description: "Assorted fresh fruit blend" },
+      { name: "Oreo Shake", price: "₹79", description: "Cookies and cream classic" },
+      { name: "KitKat", price: "₹84", description: "Chocolate wafer delight" },
+      { name: "Snickers", price: "₹84", description: "Peanut chocolate shake" }
     ]
   },
   {
-    title: "Food Items",
-    icon: "fas fa-hamburger",
+    title: "Drinks",
+    icon: "fas fa-cocktail",
     items: [
-      { name: "Chicken Club", price: "₹110", description: "Layered chicken sandwich" },
-      { name: "Beef Club", price: "₹110", description: "Premium beef club sandwich" },
-      { name: "Chicken", price: "₹110", description: "Grilled chicken special" },
-      { name: "Veg Burger", price: "₹99", description: "Fresh vegetarian burger" },
-      { name: "Egg Burger", price: "₹99", description: "Classic egg burger" },
-      { name: "Beef Burger", price: "₹99", description: "Juicy beef patty burger" },
-      { name: "Chicken Nuggets", price: "₹79", description: "Golden crispy nuggets" },
-      { name: "Kids Burger", price: "₹13", description: "Perfect size for little ones" },
-      { name: "Normal Burger", price: "₹12", description: "Classic beef burger" },
-      { name: "Zinger Burger", price: "₹10", description: "Spicy chicken burger" }
-    ]
-  },
-  {
-    title: "Desserts & Specials",
-    icon: "fas fa-ice-cream",
-    items: [
-      { name: "Royal Falooda", price: "₹99", description: "Traditional sweet dessert drink" },
-      { name: "Normal Falooda", price: "₹79", description: "Classic falooda dessert" },
-      { name: "Kannur Cocktail", price: "₹70", description: "Regional specialty drink" },
-      { name: "Blue Curacao", price: "₹70", description: "Tropical blue mocktail" },
-      { name: "Blueberry", price: "₹70", description: "Fresh blueberry special" },
-      { name: "Green Apple", price: "₹70", description: "Fresh green apple drink" },
-      { name: "Raspberry", price: "₹70", description: "Tangy raspberry delight" },
-      { name: "Strawberry Special", price: "₹70", description: "Premium strawberry treat" }
+      { name: "Fresh Lime", price: "₹20", description: "Zesty fresh lime water" },
+      { name: "Mint Lime", price: "₹25", description: "Refreshing mint and lime blend" },
+      { name: "Cold Coffee", price: "₹49", description: "Chilled coffee perfection" },
+      { name: "Blue Lime", price: "₹40", description: "Cool blue lime special" },
+      { name: "Mango Lime", price: "₹40", description: "Tropical mango lime fusion" },
+      { name: "Blue Cool", price: "₹49", description: "Refreshing blue mocktail" },
+      { name: "Choco Daddy", price: "₹44", description: "Rich chocolate drink" },
+      { name: "Cool Daddy", price: "₹49", description: "Ultimate refreshing beverage" }
     ]
   }
 ];
