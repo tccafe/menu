@@ -1,6 +1,41 @@
 // Menu Data
 const menuData = [
   {
+{
+  "title": "Main Course",
+  "icon": "fas fa-drumstick-bite",
+  "items": [
+    {
+      "name": "Shawaya - Full",
+      "price": "₹440",
+      "description": "Whole grilled chicken marinated in aromatic spices, cooked to juicy perfection."
+    },
+    {
+      "name": "Shawaya - Half",
+      "price": "₹220",
+      "description": "Half portion of our signature grilled chicken, packed with flavor and tenderness."
+    },
+    {
+      "name": "Shawaya - Quater",
+      "price": "₹110",
+      "description": "Quarter piece of deliciously seasoned and grilled chicken, ideal for light meals."
+    },
+    {
+      "name": "Shawarma - Plate",
+      "price": "₹100",
+      "description": "Sliced grilled chicken served on a plate with sauces and fresh accompaniments."
+    },
+    {
+      "name": "Shawarma - Roll",
+      "price": "₹80",
+      "description": "Spiced chicken wrapped in soft bread with veggies and garlic sauce – a classic favorite."
+    }
+  ]
+}
+
+  
+  
+  {
     title: "Sandwiches",
     icon: "fas fa-sandwich",
     items: [
@@ -10,6 +45,7 @@ const menuData = [
       { name: "Chicken Club", price: "₹120", description: "Layered chicken club sandwich" }
     ]
   },
+  
   {
     title: "Fresh Juice",
     icon: "fas fa-glass-whiskey",
