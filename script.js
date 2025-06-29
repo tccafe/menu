@@ -1,15 +1,11 @@
 // Menu Data
 const menuData = [
-  {
+  
 {
   "title": "Main Course",
   "icon": "fas fa-drumstick-bite",
   "items": [
-    {
-      "name": "Shawaya - Full",
-      "price": "₹440",
-      "description": "Whole grilled chicken marinated in aromatic spices, cooked to juicy perfection."
-    },
+    { "name": "Shawaya - Full", "price": "₹440","description": "Whole grilled chicken marinated in aromatic spices, cooked to juicy perfection."    },
     {
       "name": "Shawaya - Half",
       "price": "₹220",
