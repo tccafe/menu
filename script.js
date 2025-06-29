@@ -1,36 +1,15 @@
-// Menu Data
 const menuData = [
-  
-{
-  "title": "Main Course",
-  "icon": "fas fa-drumstick-bite",
-  "items": [
-    { "name": "Shawaya - Full", "price": "₹440","description": "Whole grilled chicken marinated in aromatic spices, cooked to juicy perfection."    },
-    {
-      "name": "Shawaya - Half",
-      "price": "₹220",
-      "description": "Half portion of our signature grilled chicken, packed with flavor and tenderness."
-    },
-    {
-      "name": "Shawaya - Quater",
-      "price": "₹110",
-      "description": "Quarter piece of deliciously seasoned and grilled chicken, ideal for light meals."
-    },
-    {
-      "name": "Shawarma - Plate",
-      "price": "₹100",
-      "description": "Sliced grilled chicken served on a plate with sauces and fresh accompaniments."
-    },
-    {
-      "name": "Shawarma - Roll",
-      "price": "₹80",
-      "description": "Spiced chicken wrapped in soft bread with veggies and garlic sauce – a classic favorite."
-    }
-  ]
-}
-
-  
-  
+  {
+    title: "Main Course",
+    icon: "fas fa-drumstick-bite",
+    items: [
+      { name: "Shawaya - Full", price: "₹440", description: "Whole grilled chicken marinated in aromatic spices, cooked to juicy perfection." },
+      { name: "Shawaya - Half", price: "₹220", description: "Half portion of our signature grilled chicken, packed with flavor and tenderness." },
+      { name: "Shawaya - Quarter", price: "₹110", description: "Quarter piece of deliciously seasoned and grilled chicken, ideal for light meals." },
+      { name: "Shawarma - Plate", price: "₹100", description: "Sliced grilled chicken served on a plate with sauces and fresh accompaniments." },
+      { name: "Shawarma - Roll", price: "₹80", description: "Spiced chicken wrapped in soft bread with veggies and garlic sauce – a classic favorite." }
+    ]
+  },
   {
     title: "Sandwiches",
     icon: "fas fa-sandwich",
@@ -41,7 +20,6 @@ const menuData = [
       { name: "Chicken Club", price: "₹120", description: "Layered chicken club sandwich" }
     ]
   },
-  
   {
     title: "Fresh Juice",
     icon: "fas fa-glass-whiskey",
@@ -98,6 +76,27 @@ const navMenu = document.getElementById('nav-menu');
 const menuGrid = document.getElementById('menu-grid');
 const contactForm = document.getElementById('contact-form');
 
+// Search and Filter Elements
+const searchInput = document.getElementById('menu-search');
+const clearSearchBtn = document.getElementById('clear-search');
+const filterToggleBtn = document.getElementById('filter-toggle');
+const clearFiltersBtn = document.getElementById('clear-filters');
+const filterDropdown = document.getElementById('filter-dropdown');
+const filterCategories = document.getElementById('filter-categories');
+const activeFiltersDiv = document.getElementById('active-filters');
+const activeFiltersList = document.getElementById('active-filters-list');
+const noResults = document.getElementById('no-results');
+const clearAllFiltersBtn = document.getElementById('clear-all-filters');
+
+// Search and Filter State
+let currentSearchTerm = '';
+let selectedCategory = 'all';
+let showFilters = false;
+
+// Cart State
+let cart = [];
+let showCart = false;
+
 // Navigation functionality
 function initNavigation() {
   // Mobile menu toggle
@@ -149,13 +148,178 @@ function scrollToSection(sectionId) {
   }
 }
 
-// Menu generation
-function generateMenu() {
+// Search and Filter Functions
+function initSearchAndFilter() {
+  if (!searchInput || !filterToggleBtn) return;
+
+  // Initialize filter categories
+  generateFilterCategories();
+  
+  // Search input event listeners
+  searchInput.addEventListener('input', handleSearch);
+  clearSearchBtn.addEventListener('click', clearSearch);
+  
+  // Filter event listeners
+  filterToggleBtn.addEventListener('click', toggleFilters);
+  clearFiltersBtn.addEventListener('click', clearAllFilters);
+  clearAllFiltersBtn.addEventListener('click', clearAllFilters);
+  
+  // Initial menu generation
+  generateFilteredMenu();
+}
+
+function generateFilterCategories() {
+  if (!filterCategories) return;
+  
+  const categories = ['all', ...menuData.map(category => category.title)];
+  
+  filterCategories.innerHTML = categories.map(category => `
+    <button class="category-btn ${category === selectedCategory ? 'active' : ''}" 
+            data-category="${category}">
+      ${category === 'all' ? 'All Categories' : category}
+    </button>
+  `).join('');
+  
+  // Add click listeners to category buttons
+  filterCategories.addEventListener('click', handleCategoryFilter);
+}
+
+function handleSearch(e) {
+  currentSearchTerm = e.target.value.trim();
+  
+  // Show/hide clear search button
+  if (clearSearchBtn) {
+    clearSearchBtn.style.display = currentSearchTerm ? 'block' : 'none';
+  }
+  
+  generateFilteredMenu();
+  updateActiveFilters();
+}
+
+function clearSearch() {
+  currentSearchTerm = '';
+  searchInput.value = '';
+  if (clearSearchBtn) {
+    clearSearchBtn.style.display = 'none';
+  }
+  generateFilteredMenu();
+  updateActiveFilters();
+}
+
+function toggleFilters() {
+  showFilters = !showFilters;
+  
+  if (filterDropdown) {
+    filterDropdown.style.display = showFilters ? 'block' : 'none';
+  }
+  
+  // Update button state
+  if (showFilters || selectedCategory !== 'all') {
+    filterToggleBtn.classList.add('active');
+  } else {
+    filterToggleBtn.classList.remove('active');
+  }
+}
+
+function handleCategoryFilter(e) {
+  if (!e.target.classList.contains('category-btn')) return;
+  
+  const category = e.target.dataset.category;
+  selectedCategory = category;
+  
+  // Update button states
+  filterCategories.querySelectorAll('.category-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  e.target.classList.add('active');
+  
+  generateFilteredMenu();
+  updateActiveFilters();
+}
+
+function clearAllFilters() {
+  currentSearchTerm = '';
+  selectedCategory = 'all';
+  showFilters = false;
+  
+  // Reset UI
+  if (searchInput) searchInput.value = '';
+  if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+  if (filterDropdown) filterDropdown.style.display = 'none';
+  if (filterToggleBtn) filterToggleBtn.classList.remove('active');
+  
+  // Update category buttons
+  generateFilterCategories();
+  
+  generateFilteredMenu();
+  updateActiveFilters();
+}
+
+function updateActiveFilters() {
+  if (!activeFiltersDiv || !activeFiltersList) return;
+  
+  const hasActiveFilters = currentSearchTerm || selectedCategory !== 'all';
+  
+  if (hasActiveFilters) {
+    activeFiltersDiv.style.display = 'flex';
+    clearFiltersBtn.style.display = 'flex';
+    
+    let filtersHTML = '';
+    
+    if (currentSearchTerm) {
+      filtersHTML += `<span class="filter-tag">Search: "${currentSearchTerm}"</span>`;
+    }
+    
+    if (selectedCategory !== 'all') {
+      filtersHTML += `<span class="filter-tag">Category: ${selectedCategory}</span>`;
+    }
+    
+    activeFiltersList.innerHTML = filtersHTML;
+  } else {
+    activeFiltersDiv.style.display = 'none';
+    clearFiltersBtn.style.display = 'none';
+  }
+}
+
+function getFilteredMenuData() {
+  let filtered = menuData;
+  
+  // Filter by category
+  if (selectedCategory !== 'all') {
+    filtered = filtered.filter(category => category.title === selectedCategory);
+  }
+  
+  // Filter by search term
+  if (currentSearchTerm) {
+    filtered = filtered.map(category => ({
+      ...category,
+      items: category.items.filter(item =>
+        item.name.toLowerCase().includes(currentSearchTerm.toLowerCase()) ||
+        item.description.toLowerCase().includes(currentSearchTerm.toLowerCase())
+      )
+    })).filter(category => category.items.length > 0);
+  }
+  
+  return filtered;
+}
+
+function generateFilteredMenu() {
   if (!menuGrid) return;
 
+  const filteredData = getFilteredMenuData();
+  
+  if (filteredData.length === 0) {
+    menuGrid.style.display = 'none';
+    if (noResults) noResults.style.display = 'block';
+    return;
+  }
+  
+  menuGrid.style.display = 'grid';
+  if (noResults) noResults.style.display = 'none';
+  
   menuGrid.innerHTML = '';
 
-  menuData.forEach(category => {
+  filteredData.forEach(category => {
     const menuCard = document.createElement('div');
     menuCard.className = 'menu-card';
     
@@ -176,7 +340,13 @@ function generateMenu() {
               </div>
               <p class="menu-item-description">${item.description}</p>
             </div>
-            <div class="menu-item-price">${item.price}</div>
+            <div class="menu-item-actions">
+              <div class="menu-item-price">${item.price}</div>
+              <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', ${parseInt(item.price.replace('₹', ''))})">
+                <i class="fas fa-plus"></i>
+                Add
+              </button>
+            </div>
           </div>
         `).join('')}
       </div>
@@ -184,6 +354,11 @@ function generateMenu() {
     
     menuGrid.appendChild(menuCard);
   });
+}
+
+// Legacy function for backward compatibility
+function generateMenu() {
+  generateFilteredMenu();
 }
 
 // Contact form handling
@@ -482,6 +657,143 @@ function isValidPhone(phone) {
   return /^[\+]?[\d\s\-\(\)]{10,}$/.test(phone);
 }
 
+// Cart Functions
+function addToCart(name, price, priceValue) {
+  const existingItem = cart.find(item => item.name === name);
+  
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      priceValue: priceValue,
+      quantity: 1
+    });
+  }
+  
+  updateCartDisplay();
+  showNotification(`${name} added to cart!`, 'success');
+}
+
+function updateQuantity(name, change) {
+  const itemIndex = cart.findIndex(item => item.name === name);
+  if (itemIndex !== -1) {
+    cart[itemIndex].quantity += change;
+    if (cart[itemIndex].quantity <= 0) {
+      cart.splice(itemIndex, 1);
+    }
+  }
+  updateCartDisplay();
+}
+
+function removeFromCart(name) {
+  cart = cart.filter(item => item.name !== name);
+  updateCartDisplay();
+  showNotification('Item removed from cart', 'info');
+}
+
+function clearCart() {
+  cart = [];
+  updateCartDisplay();
+  showNotification('Cart cleared', 'info');
+}
+
+function getTotalPrice() {
+  return cart.reduce((total, item) => total + (item.priceValue * item.quantity), 0);
+}
+
+function getTotalItems() {
+  return cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+function toggleCartDisplay() {
+  showCart = !showCart;
+  const cartContent = document.getElementById('cart-content');
+  if (cartContent) {
+    if (showCart) {
+      cartContent.classList.add('show');
+    } else {
+      cartContent.classList.remove('show');
+    }
+  }
+}
+
+function updateCartDisplay() {
+  const cartCount = document.getElementById('cart-count');
+  const cartItemsCount = document.getElementById('cart-items-count');
+  const cartTotal = document.getElementById('cart-total');
+  const cartTotalMobile = document.getElementById('cart-total-mobile');
+  const cartEmpty = document.getElementById('cart-empty');
+  const cartItems = document.getElementById('cart-items');
+  const cartSummary = document.getElementById('cart-summary');
+  
+  const totalItems = getTotalItems();
+  const totalPrice = getTotalPrice();
+  
+  // Update counts and totals
+  if (cartCount) cartCount.textContent = totalItems;
+  if (cartItemsCount) cartItemsCount.textContent = totalItems;
+  if (cartTotal) cartTotal.textContent = `₹${totalPrice}`;
+  if (cartTotalMobile) cartTotalMobile.textContent = `₹${totalPrice}`;
+  
+  // Show/hide cart sections
+  if (cart.length === 0) {
+    if (cartEmpty) cartEmpty.style.display = 'block';
+    if (cartItems) cartItems.style.display = 'none';
+    if (cartSummary) cartSummary.style.display = 'none';
+  } else {
+    if (cartEmpty) cartEmpty.style.display = 'none';
+    if (cartItems) cartItems.style.display = 'block';
+    if (cartSummary) cartSummary.style.display = 'block';
+    
+    // Update cart items
+    if (cartItems) {
+      cartItems.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-header">
+            <div class="cart-item-name">${item.name}</div>
+            <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          <div class="cart-item-controls">
+            <div class="quantity-controls">
+              <button class="quantity-btn" onclick="updateQuantity('${item.name}', -1)">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span class="quantity-display">${item.quantity}</span>
+              <button class="quantity-btn" onclick="updateQuantity('${item.name}', 1)">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="cart-item-price">
+              <div class="unit-price">${item.price} each</div>
+              <div class="total-price">₹${item.priceValue * item.quantity}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+}
+
+function initCart() {
+  const cartToggle = document.getElementById('cart-toggle');
+  const clearCartBtn = document.getElementById('clear-cart');
+  
+  if (cartToggle) {
+    cartToggle.addEventListener('click', toggleCartDisplay);
+  }
+  
+  if (clearCartBtn) {
+    clearCartBtn.addEventListener('click', clearCart);
+  }
+  
+  // Initialize cart display
+  updateCartDisplay();
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   const loading = showLoading();
@@ -489,7 +801,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize all functionality
   setTimeout(() => {
     initNavigation();
-    generateMenu();
+    initSearchAndFilter();
+    initCart();
     initContactForm();
     initAnimations();
     initSmoothScroll();
