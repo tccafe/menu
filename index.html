@@ -116,8 +116,120 @@
                 </p>
             </div>
             
-            <div class="menu-grid" id="menu-grid">
-                <!-- Menu items will be populated by JavaScript -->
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-filter-container">
+                    <div class="search-filter-content">
+                        <!-- Search Bar -->
+                        <div class="search-bar">
+                            <i class="fas fa-search search-icon"></i>
+                            <input 
+                                type="text" 
+                                id="menu-search"
+                                placeholder="Search menu items..."
+                                class="search-input"
+                            >
+                            <button id="clear-search" class="clear-search-btn" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <!-- Filter Button -->
+                        <button id="filter-toggle" class="filter-btn">
+                            <i class="fas fa-filter"></i>
+                            <span>Filter</span>
+                        </button>
+
+                        <!-- Clear Filters Button -->
+                        <button id="clear-filters" class="clear-filters-btn" style="display: none;">
+                            <i class="fas fa-times"></i>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+
+                    <!-- Filter Dropdown -->
+                    <div id="filter-dropdown" class="filter-dropdown" style="display: none;">
+                        <div class="filter-categories" id="filter-categories">
+                            <!-- Category buttons will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Active Filters Display -->
+                    <div id="active-filters" class="active-filters" style="display: none;">
+                        <span>Active filters:</span>
+                        <div id="active-filters-list" class="active-filters-list">
+                            <!-- Active filter tags will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- Menu Grid -->
+                <div class="menu-content">
+                    <div class="menu-grid" id="menu-grid">
+                        <!-- Menu items will be populated by JavaScript -->
+                    </div>
+
+                    <!-- No Results Message -->
+                    <div id="no-results" class="no-results" style="display: none;">
+                        <div class="no-results-content">
+                            <i class="fas fa-search no-results-icon"></i>
+                            <h3>No items found</h3>
+                            <p>Try adjusting your search or filter to find what you're looking for.</p>
+                            <button id="clear-all-filters" class="btn btn-primary">Clear Filters</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Cart -->
+                <div class="cart-sidebar">
+                    <!-- Mobile Cart Toggle -->
+                    <button id="cart-toggle" class="cart-toggle-btn">
+                        <div class="cart-toggle-content">
+                            <div class="cart-toggle-left">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Cart (<span id="cart-count">0</span>)</span>
+                            </div>
+                            <span id="cart-total-mobile">₹0</span>
+                        </div>
+                    </button>
+
+                    <!-- Cart Content -->
+                    <div id="cart-content" class="cart-content">
+                        <div class="cart-header">
+                            <div class="cart-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="cart-info">
+                                <h3>Your Cart</h3>
+                                <p><span id="cart-items-count">0</span> items</p>
+                            </div>
+                        </div>
+
+                        <div id="cart-empty" class="cart-empty">
+                            <i class="fas fa-shopping-cart cart-empty-icon"></i>
+                            <p>Your cart is empty</p>
+                            <span>Add some delicious items from our menu!</span>
+                        </div>
+
+                        <div id="cart-items" class="cart-items" style="display: none;">
+                            <!-- Cart items will be populated by JavaScript -->
+                        </div>
+
+                        <div id="cart-summary" class="cart-summary" style="display: none;">
+                            <div class="cart-total">
+                                <span>Total</span>
+                                <span id="cart-total">₹0</span>
+                            </div>
+                            <div class="cart-actions">
+                                <button class="btn btn-primary btn-full">Proceed to Checkout</button>
+                                <button id="clear-cart" class="btn btn-secondary btn-full">Clear Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -184,21 +296,17 @@
                     <h3>Get in Touch</h3>
                     
                     <div class="contact-item">
-                       
-<div class="contact-item">
-    <div class="contact-icon">
-        <i class="fas fa-map-marker-alt"></i>
-    </div>
-    <div class="contact-details">
-        <h4>Location</h4>
-        <p>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                           <p>
             <a href="https://maps.app.goo.gl/Yzt1G84K5vqCs9s26?g_st=iw" target="_blank">
                 Maravattam, Kadampuza<br>Malappuram, Kerala
             </a>
         </p>
-    </div>
-</div>
-
+                        </div>
                     </div>
                     
                     <div class="contact-item">
@@ -207,10 +315,8 @@
                         </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-<p>
-  <a href="tel:+918606600337">+91 8606 600 337</a><br>
+                              <a href="tel:+918606600337">+91 8606 600 337</a><br>
   <a href="tel:+919961060560">+91 9961 060 560</a>
-</p>
                         </div>
                     </div>
                     
@@ -220,7 +326,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>terraincastlecafe@gmail.com</p>
+                           <p>terraincastlecafe@gmail.com</p>
                         </div>
                     </div>
                     
@@ -230,19 +336,19 @@
                         </div>
                         <div class="contact-details">
                             <h4>Hours</h4>
-                            <p>Monday - Sunday: 11:00 AM - 11:00 PM</p>
+                             <p>Monday - Sunday: 11:00 AM - 11:00 PM</p>
                         </div>
                     </div>
-
+                    
                     <div class="social-links">
                         <h4>Follow Us</h4>
                         <div class="social-icons">
-        <a href="https://www.facebook.com/your_page" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+   <a href="https://www.facebook.com/your_page" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/tc_cafe_shaway/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com/your_profile" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-        <a href="https://wa.me/your_number" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-    </div>
-</div>
+       <a href="https://wa.me/+918606600337" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+  
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="contact-form-container">
@@ -308,9 +414,8 @@
                 <div class="footer-social">
     <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/tc_cafe_shaway/" class="footer-social-link"><i class="fab fa-instagram"></i></a>
-    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
     <a href="#" class="footer-social-link"><i class="fab fa-whatsapp"></i></a>
-</div>
+                </div>
                 
                 <div class="footer-bottom">
                     <p>&copy; 2024 T'Castle Cafe. All rights reserved. | Designed with ❤️ for coffee lovers</p>
